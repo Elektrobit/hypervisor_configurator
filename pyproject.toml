@@ -1,0 +1,93 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+path = "ebcl/__init__.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["ebcl"]
+
+[project]
+name = "ebcl"
+dynamic = ["version"]
+
+authors = [
+  { name="Elektrobit GmbH", email="info@elektrobit.com" },
+]
+description = "EBcL Hypervisor configuration tool."
+readme = "README.md"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Development Status :: 3 - Alpha",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: POSIX :: Linux",
+    "Topic :: Software Development :: Embedded Systems",
+]
+requires-python = ">=3.10"
+dependencies = [
+    "jinja2==3.1.2",
+    "pyyaml==6.0.1",
+]
+
+[tool.hatch.envs.dev]
+dependencies = [
+    "Flake8-pyproject==1.2.3",
+    "flake8==7.1.1",
+    "mypy==1.13.0",
+    "pytest-cov==6.0.0",
+    "pytest==8.3.3",
+    "types-PyYAML==6.0.12.20250822",
+]
+
+[tool.hatch.envs.dev.scripts]
+check = [
+    "flake8",
+    "mypy ebcl",
+    "pytest --cov=.",
+]
+
+[project.urls]
+Homepage = "https://github.com/Elektrobit/hypervisor_configurator"
+
+[project.scripts]
+hypervisor_config = "ebcl.tools.hypervisor.config_gen:main"
+
+[tool.pylint.format]
+max-line-length = 120
+
+[tool.pytest.ini_options]
+minversion = "6.2.5"
+addopts = ""
+testpaths = [ "tests" ]
+log_level = "debug"
+
+[tool.coverage.paths]
+source = [
+    "ebcl",
+    "*/site-packages/ebcl"
+]
+
+[tool.coverage.run]
+branch = true
+source = [ "ebcl" ]
+
+[tool.coverage.report]
+include_namespace_packages = true
+exclude_also = []
+include = ["ebcl/*"]
+
+[tool.coverage.html]
+show_contexts = true
+
+[tool.mypy]
+mypy_path = "$MYPY_CONFIG_FILE_DIR"
+explicit_package_bases = true
+
+[tool.flake8]
+ignore = [ ]
+per-file-ignores = [ ]
+count = true
+statistics = true
+max-line-length = 120
+exclude = '.venv'
