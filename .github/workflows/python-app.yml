@@ -23,8 +23,20 @@ jobs:
         with:
           python-version: "3.10"
       - name: Install dependencies
-        run: |
-          pip install hatch==1.14.1
+        run: pip install hatch==1.14.1
       - name: Run linters and tests
+        run: hatch run dev:check
+
+  build-deb:
+    runs-on: ubuntu-noble
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install dependencies
         run: |
-          hatch run dev:check
+          apt update
+          apt install -y build-essential devscripts python3-yaml debhelper \
+            python3-jinja2 python3-pytest dh-sequence-python3 \
+            pybuild-plugin-pyproject python3-all python3-hatchling
+      - name: Build .deb package
+        run: debuild -uc -us -b

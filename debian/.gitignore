@@ -1,0 +1,5 @@
+/ebcl-hypervisor-configurator
+/*.debhelper
+/*.substvars
+/debhelper-build-stamp
+/files

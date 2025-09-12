@@ -1,0 +1,28 @@
+Source: ebcl-hypervisor-configurator
+Maintainer: Elektrobit GmbH <info@elektrobit.com>
+Section: utils
+Priority: optional
+Standards-Version: 4.6.2
+Build-Depends:
+ debhelper-compat (= 13),
+ dh-sequence-python3,
+ pybuild-plugin-pyproject,
+ python3-all:any,
+ python3-hatchling,
+ python3-jinja2,
+ python3-pytest,
+ python3-yaml,
+Rules-Requires-Root: no
+Homepage: https://github.com/Elektrobit/hypervisor_configurator/
+Vcs-Browser: https://github.com/Elektrobit/hypervisor_configurator/
+Vcs-Git: https://github.com/Elektrobit/hypervisor_configurator.git
+
+Package: ebcl-hypervisor-configurator
+Architecture: all
+Depends:
+ ${misc:Depends},
+ ${python3:Depends},
+Description: EBcL Hypervisor configuration tool
+ The hypervisor config generator can create configuration files for the
+ Elektrobit Hypervisor from a declarative configuration in yaml configuration
+ files.
