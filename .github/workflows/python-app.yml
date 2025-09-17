@@ -34,8 +34,8 @@ jobs:
       - uses: actions/checkout@v4
       - name: Install dependencies
         run: |
-          apt update
-          apt install -y build-essential devscripts python3-yaml debhelper \
+          sudo apt update
+          sudo apt install -y build-essential devscripts python3-yaml debhelper \
             python3-jinja2 python3-pytest dh-sequence-python3 \
             pybuild-plugin-pyproject python3-all python3-hatchling
       - name: Build .deb package
