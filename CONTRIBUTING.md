@@ -16,7 +16,7 @@ All types of contributions are encouraged and valued. See the [Table of Contents
 
 This project and everyone participating in it is governed by the
 
-[hypervisor_configurator Code of Conduct](https://github.com/Elektrobit/hypervisor_configurator/blob//CODE_OF_CONDUCT.md).
+[hypervisor_configurator Code of Conduct](CODE_OF_CONDUCT.md).
 
 By participating, you are expected to uphold this code. Please report unacceptable behavior to info@elektorbit.com.
 
