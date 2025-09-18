@@ -18,7 +18,7 @@ This project and everyone participating in it is governed by the
 
 [hypervisor_configurator Code of Conduct](CODE_OF_CONDUCT.md).
 
-By participating, you are expected to uphold this code. Please report unacceptable behavior to info@elektorbit.com.
+By participating, you are expected to uphold this code. Please report unacceptable behavior to info@elektrobit.com.
 
 ## I Have a Question
 
